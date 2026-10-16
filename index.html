@@ -1,0 +1,2140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AA's Bakery — Baked With Love in Mombasa</title>
+  <meta name="description" content="AA's Bakery — Mombasa's favourite cake shop. Custom cakes, signature flavours, event catering & same-day delivery." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+
+<style>
+/* ============================================================
+   AA'S BAKERY — Single-File Styles
+   Warm Artisan Theme | Fully Responsive
+   ============================================================ */
+
+/* ---------- CSS Variables ---------- */
+:root {
+  --cream:        #fdf6ee;
+  --warm-white:   #fffaf4;
+  --brown-dark:   #3b1f0e;
+  --brown-mid:    #7b4a2d;
+  --brown-light:  #c8956c;
+  --rose:         #e8a598;
+  --rose-light:   #f7ddd8;
+  --gold:         #d4a93c;
+  --gold-light:   #f5e9c8;
+  --text-dark:    #2c1a0e;
+  --text-mid:     #5c3d2a;
+  --text-light:   #9a7060;
+  --border:       #e8d5c4;
+  --shadow:       rgba(59,31,14,0.12);
+  --shadow-hover: rgba(59,31,14,0.22);
+  --radius-sm:    6px;
+  --radius-md:    14px;
+  --radius-lg:    24px;
+  --radius-xl:    40px;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Nunito', 'Segoe UI', sans-serif;
+  --transition:   0.28s ease;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--cream); color: var(--text-dark); line-height: 1.7; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ---------- Announcement Bar ---------- */
+.announcement-bar {
+  background: var(--brown-dark);
+  color: var(--gold-light);
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 9px 16px;
+  letter-spacing: 0.03em;
+}
+
+/* ---------- HEADER / NAVBAR ---------- */
+.header {
+  background: var(--warm-white);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 16px var(--shadow);
+}
+.navbar {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.brand-logo {
+  width: 52px; height: 52px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: var(--gold-light);
+}
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--brown-dark);
+  white-space: nowrap;
+}
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-link {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition), background var(--transition);
+  cursor: pointer;
+}
+.nav-link:hover, .nav-link.active {
+  color: var(--brown-dark);
+  background: var(--rose-light);
+}
+.nav-divider { width: 1px; height: 24px; background: var(--border); margin: 0 8px; }
+.nav-toggle { display: none; }
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px; height: 20px;
+  cursor: pointer;
+  z-index: 200;
+}
+.hamburger span {
+  display: block; width: 100%; height: 2.5px;
+  background: var(--brown-dark);
+  border-radius: 4px;
+  transition: all 0.35s ease;
+  transform-origin: left center;
+}
+
+/* ---------- SECTION COMMON ---------- */
+.section-tag {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--brown-light);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--brown-dark);
+  text-align: center;
+  margin-bottom: 48px;
+  line-height: 1.2;
+}
+.section-title em { color: var(--rose); font-style: italic; }
+
+/* ============================================================
+   HOME PAGE
+   ============================================================ */
+
+/* HERO */
+.hero {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 60px 32px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  min-height: 80vh;
+}
+.hero-tag {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--brown-light);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-weight: 700;
+  color: var(--brown-dark);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+.hero-title em { color: var(--rose); font-style: italic; }
+.hero-desc { font-size: 1.05rem; color: var(--text-mid); max-width: 440px; margin-bottom: 36px; }
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-hero-primary {
+  display: inline-block;
+  background: var(--brown-dark);
+  color: var(--gold-light);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 14px 32px;
+  border-radius: var(--radius-xl);
+  transition: all var(--transition);
+}
+.btn-hero-primary:hover { background: var(--brown-mid); transform: translateY(-2px); box-shadow: 0 8px 24px var(--shadow-hover); }
+.btn-hero-secondary {
+  display: inline-block;
+  background: transparent;
+  color: var(--brown-dark);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 13px 30px;
+  border: 2px solid var(--brown-dark);
+  border-radius: var(--radius-xl);
+  transition: all var(--transition);
+}
+.btn-hero-secondary:hover { background: var(--rose-light); }
+.hero-images { display: grid; grid-template-columns: 1fr 0.72fr; gap: 16px; align-items: center; }
+.hero-img-main img { width: 100%; height: 340px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: 0 12px 40px var(--shadow); transition: transform var(--transition); }
+.hero-img-main img:hover { transform: scale(1.02); }
+.hero-img-side { display: flex; flex-direction: column; gap: 16px; }
+.hero-img-side img { width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-md); box-shadow: 0 6px 20px var(--shadow); transition: transform var(--transition); }
+.hero-img-side img:hover { transform: scale(1.03); }
+
+/* TRUST BAR */
+.trust-bar {
+  background: var(--brown-dark);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--gold-light);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 20px 36px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  flex: 1 1 200px;
+  justify-content: center;
+  min-width: 160px;
+}
+.trust-item:last-child { border-right: none; }
+.trust-item i { color: var(--gold); font-size: 1.3rem; }
+
+/* ABOUT STRIP */
+.about-strip {
+  max-width: 1100px;
+  margin: 64px auto;
+  padding: 0 32px;
+  display: flex;
+  gap: 64px;
+  align-items: center;
+}
+.about-text { flex: 1; }
+.about-text .section-title { text-align: left; margin-bottom: 18px; }
+.about-text p { color: var(--text-mid); font-size: 1rem; margin-bottom: 24px; max-width: 520px; }
+.link-arrow {
+  font-weight: 700;
+  color: var(--brown-mid);
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap var(--transition), color var(--transition);
+  cursor: pointer;
+}
+.link-arrow:hover { gap: 14px; color: var(--brown-dark); }
+.about-badge { flex-shrink: 0; }
+.badge-circle {
+  width: 160px; height: 160px;
+  background: var(--brown-dark);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 30px var(--shadow-hover);
+}
+.badge-big { font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--gold); line-height: 1; }
+.badge-small { font-size: 0.78rem; font-weight: 600; color: var(--gold-light); text-align: center; line-height: 1.4; margin-top: 4px; }
+
+/* CAKES GRID */
+.cakes-section { padding: 64px 32px; background: var(--warm-white); }
+.cakes-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+}
+.cake-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 18px var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+.cake-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px var(--shadow-hover); }
+.cake-img-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+  background: var(--rose-light);
+}
+.cake-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.cake-card:hover .cake-img-wrap img { transform: scale(1.06); }
+/* Fallback illustrated placeholder when image missing */
+.cake-img-wrap.no-img {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 4rem; color: var(--rose);
+}
+.cake-badge {
+  position: absolute; top: 12px; left: 12px;
+  background: var(--brown-dark);
+  color: var(--gold-light);
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: var(--radius-xl);
+  text-transform: uppercase;
+}
+.cake-badge.new { background: var(--rose); color: #fff; }
+.cake-info { padding: 20px; display: flex; flex-direction: column; flex: 1; }
+.cake-info h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--brown-dark); margin-bottom: 8px; }
+.cake-info p { color: var(--text-light); font-size: 0.9rem; flex: 1; margin-bottom: 16px; }
+.cake-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.cake-price { font-weight: 700; font-size: 1.05rem; color: var(--brown-mid); }
+.btn-card {
+  background: var(--brown-dark);
+  color: var(--gold-light);
+  font-size: 0.82rem; font-weight: 700;
+  padding: 8px 18px;
+  border-radius: var(--radius-xl);
+  transition: all var(--transition);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.btn-card:hover { background: var(--rose); transform: translateY(-1px); }
+
+/* CONTAINER BAKES */
+.container-bakes-section { padding: 64px 32px; background: var(--cream); }
+.container-bakes-intro { max-width: 680px; margin: -24px auto 32px; text-align: center; color: var(--text-mid); }
+.tray-showcase {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1.1fr);
+  gap: 28px;
+  align-items: stretch;
+}
+.tray-photo { width: 100%; height: 100%; min-height: 360px; object-fit: cover; border-radius: var(--radius-md); }
+.tray-prices { display: flex; flex-direction: column; justify-content: center; }
+.tray-prices h3 { font-family: var(--font-display); color: var(--brown-dark); font-size: 1.5rem; margin-bottom: 6px; }
+.tray-prices > p { color: var(--text-mid); margin-bottom: 18px; }
+.container-bakes-grid {
+  max-width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.container-price-card {
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--rose);
+  padding: 18px;
+}
+.container-price-card.featured { border-top-color: var(--gold); }
+.container-size { color: var(--text-light); font-size: 0.82rem; font-weight: 700; text-transform: uppercase; }
+.container-price-card h3 { margin: 6px 0; font-family: var(--font-display); color: var(--brown-dark); font-size: 1.05rem; }
+.container-price { color: var(--brown-mid); font-size: 1.35rem; font-weight: 700; }
+.container-price-card p { margin-top: 5px; color: var(--text-light); font-size: 0.86rem; }
+.biscuit-examples {
+  max-width: 1100px;
+  margin: 38px auto 0;
+  padding: 24px 0 0;
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 0.65fr);
+  gap: 24px;
+  align-items: center;
+}
+.biscuit-examples h3 { font-family: var(--font-display); color: var(--brown-dark); font-size: 1.25rem; }
+.biscuit-examples p { color: var(--text-mid); font-size: 0.92rem; }
+.biscuit-examples img { width: 100%; height: 180px; object-fit: cover; border-radius: var(--radius-md); }
+.brand-tray-note { margin-top: 14px; display: flex; align-items: center; gap: 12px; color: var(--text-light); font-size: 0.85rem; }
+.brand-tray-note img { width: 72px; height: 72px; object-fit: cover; border-radius: var(--radius-sm); }
+.quote-label { display: block; color: var(--brown-mid); font-weight: 700; }
+
+/* OCCASIONS */
+.occasions-section { background: var(--gold-light); padding: 64px 32px; }
+.occasions-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 28px;
+}
+.occasion-card {
+  background: var(--warm-white);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 4px 18px var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.occasion-card:hover { transform: translateY(-6px); box-shadow: 0 14px 36px var(--shadow-hover); }
+.occasion-card i { font-size: 2.4rem; color: var(--rose); margin-bottom: 18px; }
+.occasion-card h4 { font-family: var(--font-display); font-size: 1.1rem; color: var(--brown-dark); margin-bottom: 10px; }
+.occasion-card p { color: var(--text-light); font-size: 0.9rem; }
+
+/* HOW TO ORDER */
+.how-section { padding: 64px 32px; background: var(--warm-white); }
+.steps-row {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.step {
+  flex: 1 1 180px;
+  text-align: center;
+  padding: 28px 16px;
+  background: var(--cream);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  max-width: 220px;
+}
+.step-num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--rose); line-height: 1; margin-bottom: 14px; }
+.step h4 { font-family: var(--font-display); font-size: 1rem; color: var(--brown-dark); margin-bottom: 8px; }
+.step p { font-size: 0.88rem; color: var(--text-light); }
+.step-arrow { align-self: center; color: var(--border); font-size: 1.4rem; padding: 0 4px; flex-shrink: 0; }
+
+/* TESTIMONIALS */
+.testimonials-section { padding: 64px 32px; background: var(--cream); }
+.testimonials-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+}
+.testimonial-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  box-shadow: 0 4px 18px var(--shadow);
+  border-top: 4px solid var(--rose);
+  transition: transform var(--transition);
+}
+.testimonial-card:hover { transform: translateY(-4px); }
+.stars { font-size: 1.1rem; color: var(--gold); margin-bottom: 14px; letter-spacing: 0.1em; }
+.testimonial-card p { font-size: 0.95rem; color: var(--text-mid); font-style: italic; margin-bottom: 18px; line-height: 1.8; }
+.testimonial-author { font-weight: 700; font-size: 0.88rem; color: var(--brown-light); }
+
+/* CTA BANNER */
+.cta-banner {
+  background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-mid) 100%);
+  padding: 64px 32px;
+  text-align: center;
+}
+.cta-content h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.4rem); color: var(--gold-light); margin-bottom: 14px; }
+.cta-content p { color: var(--rose-light); font-size: 1rem; margin-bottom: 32px; }
+.cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--gold);
+  color: var(--brown-dark);
+  font-weight: 700; font-size: 1rem;
+  padding: 15px 40px;
+  border-radius: var(--radius-xl);
+  transition: all var(--transition);
+}
+.btn-cta:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.25); }
+.btn-cta-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent;
+  color: var(--gold-light);
+  font-weight: 700; font-size: 1rem;
+  padding: 14px 36px;
+  border-radius: var(--radius-xl);
+  border: 2px solid var(--gold);
+  transition: all var(--transition);
+}
+.btn-cta-outline:hover { background: var(--gold); color: var(--brown-dark); }
+
+/* ============================================================
+   INNER PAGES SHARED
+   ============================================================ */
+.page-hero {
+  background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-mid) 100%);
+  padding: 80px 32px 64px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 20% 50%, rgba(212,169,60,0.15) 0%, transparent 60%),
+                    radial-gradient(circle at 80% 20%, rgba(232,165,152,0.12) 0%, transparent 50%);
+  pointer-events: none;
+}
+.page-hero-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+.page-hero-content p { color: rgba(245,233,200,0.85); font-size: 1rem; margin-bottom: 20px; }
+.page-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  color: var(--gold-light);
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+.page-hero-title em { color: var(--rose); font-style: italic; }
+.breadcrumb { display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; color: rgba(245,233,200,0.6); margin-top: 8px; }
+.breadcrumb a { color: var(--gold); font-weight: 600; cursor: pointer; transition: color var(--transition); }
+.breadcrumb a:hover { color: #fff; }
+.breadcrumb i { font-size: 0.65rem; }
+.breadcrumb span { color: rgba(245,233,200,0.85); }
+
+.page-section { padding: 72px 32px; max-width: 100%; }
+.bg-gold  { background: var(--gold-light); }
+.bg-cream { background: var(--cream); }
+
+/* ============================================================
+   SERVICES PAGE
+   ============================================================ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.service-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  box-shadow: 0 4px 18px var(--shadow);
+  display: flex; flex-direction: column; gap: 14px;
+  position: relative;
+  transition: transform var(--transition), box-shadow var(--transition);
+  border-top: 4px solid var(--border);
+}
+.service-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px var(--shadow-hover); border-top-color: var(--rose); }
+.featured-service { border-top-color: var(--gold); background: linear-gradient(135deg, #fffdf6 0%, #fff8ec 100%); }
+.service-badge {
+  position: absolute; top: -1px; right: 20px;
+  background: var(--gold); color: var(--brown-dark);
+  font-size: 0.72rem; font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.service-icon {
+  width: 60px; height: 60px;
+  background: var(--rose-light);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; color: var(--rose);
+}
+.featured-service .service-icon { background: var(--gold-light); color: var(--gold); }
+.service-card h3 { font-family: var(--font-display); font-size: 1.25rem; color: var(--brown-dark); }
+.service-card p { color: var(--text-mid); font-size: 0.92rem; line-height: 1.7; }
+.service-list { list-style: none; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.service-list li { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--text-mid); }
+.service-list li i { color: var(--rose); font-size: 0.8rem; flex-shrink: 0; }
+.btn-service {
+  display: inline-block;
+  background: var(--brown-dark); color: var(--gold-light);
+  font-weight: 700; font-size: 0.88rem;
+  padding: 11px 24px;
+  border-radius: var(--radius-xl);
+  text-align: center;
+  transition: all var(--transition);
+  margin-top: 6px; align-self: flex-start; cursor: pointer;
+}
+.btn-service:hover { background: var(--rose); transform: translateY(-1px); }
+
+/* FLAVOURS TABLE */
+.flavours-table-wrap {
+  max-width: 1100px; margin: 0 auto;
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 24px var(--shadow);
+}
+.flavours-table { width: 100%; border-collapse: collapse; background: #fff; font-size: 0.93rem; }
+.flavours-table thead { background: var(--brown-dark); color: var(--gold-light); }
+.flavours-table thead th { padding: 16px 20px; text-align: left; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; }
+.flavours-table tbody tr { border-bottom: 1px solid var(--border); transition: background var(--transition); }
+.flavours-table tbody tr:hover { background: var(--rose-light); }
+.flavours-table tbody td { padding: 16px 20px; color: var(--text-mid); vertical-align: middle; }
+.flavours-table tbody td:first-child { color: var(--brown-dark); }
+.table-btn {
+  display: inline-block;
+  background: var(--brown-dark); color: var(--gold-light);
+  padding: 7px 18px;
+  border-radius: var(--radius-xl);
+  font-size: 0.82rem; font-weight: 700;
+  transition: all var(--transition); white-space: nowrap; cursor: pointer;
+}
+.table-btn:hover { background: var(--rose); }
+
+/* ============================================================
+   ABOUT PAGE
+   ============================================================ */
+.about-story {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 64px; align-items: center;
+  max-width: 1100px; margin: 0 auto;
+}
+.story-img-wrap { position: relative; }
+.story-img { width: 100%; height: 440px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: 0 12px 40px var(--shadow-hover); background: var(--rose-light); }
+.story-float-badge {
+  position: absolute; bottom: -20px; right: -20px;
+  width: 120px; height: 120px;
+  background: var(--brown-dark);
+  border-radius: 50%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  box-shadow: 0 8px 28px var(--shadow-hover);
+  border: 4px solid var(--gold);
+}
+.story-text p { color: var(--text-mid); font-size: 0.97rem; line-height: 1.8; }
+.story-values { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.value-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--rose-light); color: var(--brown-mid);
+  font-size: 0.85rem; font-weight: 700;
+  padding: 8px 16px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--rose);
+}
+.value-chip i { color: var(--rose); }
+
+/* STATS */
+.stats-section { background: var(--brown-dark); padding: 56px 32px; }
+.stats-grid {
+  max-width: 1000px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 24px; text-align: center;
+}
+.stat-card {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 24px 16px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+.stat-card:last-child { border-right: none; }
+.stat-num { font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--gold); line-height: 1; }
+.stat-label { font-size: 0.9rem; color: rgba(245,233,200,0.75); font-weight: 600; }
+
+/* MISSION & VISION */
+.mv-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+}
+.mv-card {
+  background: var(--warm-white);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: 0 4px 18px var(--shadow);
+  transition: transform var(--transition);
+}
+.mv-card:hover { transform: translateY(-6px); }
+.mv-icon {
+  width: 64px; height: 64px;
+  background: var(--brown-dark); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 1.5rem; color: var(--gold);
+}
+.mv-card h3 { font-family: var(--font-display); font-size: 1.2rem; color: var(--brown-dark); margin-bottom: 12px; }
+.mv-card p { font-size: 0.92rem; color: var(--text-mid); line-height: 1.75; }
+
+/* TEAM */
+.team-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 28px;
+}
+.team-card {
+  background: #fff; border-radius: var(--radius-lg);
+  padding: 32px 20px; text-align: center;
+  box-shadow: 0 4px 18px var(--shadow);
+  transition: transform var(--transition);
+}
+.team-card:hover { transform: translateY(-6px); }
+.team-avatar {
+  width: 80px; height: 80px;
+  background: var(--rose-light); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 2rem; color: var(--rose);
+  border: 3px solid var(--rose);
+}
+.team-card h4 { font-family: var(--font-display); font-size: 1.1rem; color: var(--brown-dark); margin-bottom: 4px; }
+.team-role { display: block; font-size: 0.82rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+.team-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.7; }
+
+/* WHY US */
+.why-grid {
+  max-width: 1000px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px;
+}
+.why-item {
+  display: flex; align-items: flex-start; gap: 18px;
+  padding: 24px;
+  background: #fff; border-radius: var(--radius-md);
+  box-shadow: 0 2px 12px var(--shadow);
+  transition: transform var(--transition);
+}
+.why-item:hover { transform: translateY(-4px); }
+.why-item > i { font-size: 1.6rem; color: var(--rose); flex-shrink: 0; margin-top: 2px; }
+.why-item h4 { font-family: var(--font-display); font-size: 1rem; color: var(--brown-dark); margin-bottom: 6px; }
+.why-item p { font-size: 0.88rem; color: var(--text-light); line-height: 1.7; }
+
+/* ============================================================
+   CONTACT PAGE
+   ============================================================ */
+.contact-info-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px; max-width: 1100px; margin: 0 auto;
+}
+.contact-info-card {
+  background: #fff; border-radius: var(--radius-lg);
+  padding: 32px 20px; text-align: center;
+  box-shadow: 0 4px 18px var(--shadow);
+  transition: transform var(--transition);
+}
+.contact-info-card:hover { transform: translateY(-5px); }
+.contact-info-icon {
+  width: 56px; height: 56px;
+  background: var(--rose-light); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px; font-size: 1.4rem; color: var(--rose);
+}
+.contact-info-card h4 { font-family: var(--font-display); font-size: 1rem; color: var(--brown-dark); margin-bottom: 8px; }
+.contact-info-card p { color: var(--text-mid); font-size: 0.92rem; line-height: 1.6; }
+.contact-link {
+  display: inline-block; margin-top: 10px;
+  font-weight: 700; font-size: 0.85rem;
+  color: var(--rose);
+  border-bottom: 1px solid var(--rose);
+  transition: color var(--transition);
+}
+.contact-link:hover { color: var(--brown-dark); }
+
+/* CONTACT FORM + SIDEBAR */
+.contact-main {
+  display: grid; grid-template-columns: 1fr 380px;
+  gap: 48px; max-width: 1200px; margin: 0 auto;
+}
+.contact-form-wrap {
+  background: #fff; border-radius: var(--radius-lg);
+  padding: 40px 36px; box-shadow: 0 4px 24px var(--shadow);
+}
+.contact-form { display: flex; flex-direction: column; gap: 18px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 0.88rem; font-weight: 700; color: var(--brown-mid); }
+.required { color: var(--rose); }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%; padding: 12px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body); font-size: 0.93rem;
+  color: var(--text-dark); background: var(--cream);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--rose);
+  box-shadow: 0 0 0 3px rgba(232,165,152,0.2);
+  background: #fff;
+}
+.form-group textarea { resize: vertical; min-height: 120px; }
+.btn-submit {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  background: var(--brown-dark); color: var(--gold-light);
+  font-family: var(--font-body); font-weight: 700; font-size: 1rem;
+  padding: 15px 36px; border: none;
+  border-radius: var(--radius-xl);
+  cursor: pointer; transition: all var(--transition); align-self: flex-start;
+}
+.btn-submit:hover { background: var(--rose); transform: translateY(-2px); box-shadow: 0 8px 24px var(--shadow-hover); }
+.form-success {
+  display: none; flex-direction: column;
+  align-items: center; text-align: center;
+  padding: 40px 20px; gap: 14px;
+}
+.form-success i { font-size: 3.5rem; color: #4caf50; }
+.form-success h4 { font-family: var(--font-display); font-size: 1.5rem; color: var(--brown-dark); }
+.form-success p { color: var(--text-mid); font-size: 0.95rem; }
+
+/* SIDEBAR */
+.contact-sidebar { display: flex; flex-direction: column; gap: 24px; }
+.sidebar-card { background: #fff; border-radius: var(--radius-lg); padding: 28px 24px; box-shadow: 0 4px 18px var(--shadow); }
+.sidebar-card h4 {
+  font-family: var(--font-display); font-size: 1rem;
+  color: var(--brown-dark); margin-bottom: 18px;
+  display: flex; align-items: center; gap: 10px;
+}
+.sidebar-card h4 i { color: var(--rose); }
+.hours-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+.hours-table td { padding: 8px 4px; color: var(--text-mid); border-bottom: 1px solid var(--border); }
+.hours-table td:first-child { font-weight: 600; color: var(--brown-dark); }
+.hours-table td:last-child { text-align: right; }
+.hours-table .closed td { color: var(--rose); opacity: 0.8; }
+.order-tips { display: flex; flex-direction: column; gap: 10px; }
+.order-tips li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--text-mid); line-height: 1.5; }
+.order-tips li i { color: var(--rose); font-size: 0.8rem; margin-top: 4px; flex-shrink: 0; }
+.social-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--rose-light); color: var(--brown-mid);
+  font-size: 0.85rem; font-weight: 700;
+  padding: 8px 14px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--rose);
+  transition: all var(--transition);
+}
+.social-pill:hover { background: var(--rose); color: #fff; }
+.social-icons { display: flex; gap: 12px; flex-wrap: wrap; }
+.social-icons a {
+  width: 38px; height: 38px;
+  background: rgba(255,255,255,0.08); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold-light); font-size: 0.95rem;
+  transition: background var(--transition), transform var(--transition);
+}
+.social-icons a:hover { background: var(--rose); transform: translateY(-3px); }
+
+/* MAP */
+.map-section { padding: 64px 32px; background: var(--warm-white); }
+.map-wrap {
+  max-width: 1100px; margin: 0 auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 8px 32px var(--shadow);
+}
+
+/* FAQ */
+.faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.faq-item { background: #fff; border-radius: var(--radius-md); box-shadow: 0 2px 12px var(--shadow); overflow: hidden; }
+.faq-toggle { display: none; }
+.faq-question {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 24px; font-weight: 700; font-size: 0.97rem;
+  color: var(--brown-dark); cursor: pointer; gap: 16px;
+  transition: background var(--transition); user-select: none;
+}
+.faq-question:hover { background: var(--rose-light); }
+.faq-arrow { font-size: 0.85rem; color: var(--rose); flex-shrink: 0; transition: transform 0.3s ease; }
+.faq-toggle:checked ~ .faq-question .faq-arrow { transform: rotate(180deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
+.faq-toggle:checked ~ .faq-answer { max-height: 300px; padding: 0 24px 20px; }
+.faq-answer p { font-size: 0.93rem; color: var(--text-mid); line-height: 1.8; border-top: 1px solid var(--border); padding-top: 16px; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer { background: var(--brown-dark); color: var(--gold-light); }
+.footer-top {
+  max-width: 1280px; margin: 0 auto;
+  padding: 64px 32px 48px;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 48px;
+}
+.brand-col img.footer-logo { width: 54px; height: 54px; object-fit: contain; border-radius: 50%; margin-bottom: 12px; border: 2px solid var(--gold); background: var(--gold-light); }
+.brand-col h3 { font-family: var(--font-display); font-size: 1.3rem; color: var(--gold); margin-bottom: 10px; }
+.brand-col p { font-size: 0.9rem; color: rgba(245,233,200,0.75); line-height: 1.7; margin-bottom: 24px; }
+.footer-col h4 { font-family: var(--font-display); font-size: 1rem; color: var(--gold); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+.footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul li a,
+.footer-col ul li {
+  font-size: 0.9rem; color: rgba(245,233,200,0.75);
+  display: flex; align-items: flex-start; gap: 8px;
+  transition: color var(--transition); line-height: 1.5; cursor: pointer;
+}
+.footer-col ul li a:hover { color: var(--gold); }
+.footer-col ul li i { color: var(--rose); font-size: 0.8rem; margin-top: 4px; flex-shrink: 0; }
+.contact-list li { align-items: flex-start !important; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.10);
+  padding: 22px 32px;
+  max-width: 1280px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+}
+.footer-policies { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer-policies a { font-size: 0.82rem; color: rgba(245,233,200,0.6); transition: color var(--transition); }
+.footer-policies a:hover { color: var(--gold); }
+.copy { font-size: 0.82rem; color: rgba(245,233,200,0.5); }
+
+/* BACK TO TOP */
+.back-to-top {
+  position: fixed; bottom: 28px; right: 28px;
+  width: 46px; height: 46px;
+  background: var(--brown-dark); color: var(--gold-light);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  box-shadow: 0 4px 16px var(--shadow-hover);
+  transition: all var(--transition); z-index: 999;
+  border: 2px solid var(--gold);
+}
+.back-to-top:hover { background: var(--rose); transform: translateY(-4px); }
+
+/* PAGE VISIBILITY */
+.page-section-wrapper { display: none; }
+.page-section-wrapper.active { display: block; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .hero { gap: 32px; padding: 40px 24px; }
+  .contact-main { grid-template-columns: 1fr; }
+  .about-story { grid-template-columns: 1fr; gap: 48px; }
+  .story-img { height: 320px; }
+  .story-float-badge { bottom: -16px; right: 16px; }
+  .mv-grid { grid-template-columns: 1fr 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+}
+
+@media (max-width: 820px) {
+  .hamburger { display: flex; }
+  .nav-links {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background: var(--warm-white);
+    flex-direction: column; align-items: center; justify-content: center;
+    gap: 20px;
+    transform: translateX(100%);
+    transition: transform 0.38s ease;
+    z-index: 100; padding: 24px;
+  }
+  .nav-toggle:checked ~ .nav-links { transform: translateX(0); }
+  .nav-toggle:checked ~ .hamburger span:nth-child(1) { transform: rotate(42deg) translateY(-2px); }
+  .nav-toggle:checked ~ .hamburger span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .nav-toggle:checked ~ .hamburger span:nth-child(3) { transform: rotate(-42deg) translateY(2px); }
+  .nav-link { font-size: 1.2rem; padding: 12px 24px; }
+  .nav-divider { width: 60px; height: 1px; margin: 4px 0; }
+  .hero { grid-template-columns: 1fr; min-height: unset; padding: 40px 20px; text-align: center; gap: 32px; }
+  .hero-desc { max-width: 100%; margin: 0 auto 28px; }
+  .hero-actions { justify-content: center; }
+  .hero-images { grid-template-columns: 1fr 0.8fr; }
+  .about-strip { flex-direction: column; gap: 32px; text-align: center; padding: 0 20px; }
+  .about-text .section-title { text-align: center; }
+  .about-text p { max-width: 100%; }
+  .link-arrow { justify-content: center; }
+  .step-arrow { display: none; }
+  .step { min-width: 160px; max-width: 100%; flex: 1 1 44%; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 28px; padding: 48px 20px 36px; }
+  .trust-item { padding: 16px 20px; flex: 1 1 48%; }
+  .page-section { padding: 48px 20px; }
+  .page-hero { padding: 60px 20px 48px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .mv-grid { grid-template-columns: 1fr; }
+  .contact-main { gap: 28px; }
+  .contact-form-wrap { padding: 28px 20px; }
+  .form-row { grid-template-columns: 1fr; }
+  .contact-info-grid { grid-template-columns: repeat(2, 1fr); }
+  .map-section { padding: 48px 20px; }
+  .why-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 580px) {
+  .announcement-bar { font-size: 0.75rem; padding: 8px 12px; }
+  .brand-name { font-size: 1rem; }
+  .hero { padding: 32px 16px; }
+  .hero-images { grid-template-columns: 1fr; }
+  .hero-img-side { display: none; }
+  .hero-img-main img { height: 260px; }
+  .cakes-section, .occasions-section, .how-section, .testimonials-section, .cta-banner, .container-bakes-section { padding: 48px 16px; }
+  .cakes-grid { grid-template-columns: 1fr; }
+  .tray-showcase { grid-template-columns: 1fr; gap: 20px; }
+  .tray-photo { min-height: 0; height: 260px; }
+  .biscuit-examples { grid-template-columns: 1fr; }
+  .biscuit-examples img { height: 200px; }
+  .occasions-grid { grid-template-columns: 1fr 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; padding: 40px 16px 28px; }
+  .footer-bottom { flex-direction: column; text-align: center; padding: 20px 16px; }
+  .footer-policies { justify-content: center; gap: 16px; }
+  .step { flex: 1 1 100%; }
+  .trust-item { flex: 1 1 100%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .trust-item:last-child { border-bottom: none; }
+  .back-to-top { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 0.9rem; }
+  .page-hero-title { font-size: 2rem; }
+  .contact-info-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .team-grid { grid-template-columns: 1fr 1fr; }
+  .story-img { height: 240px; }
+  .story-float-badge { width: 90px; height: 90px; right: 8px; bottom: -12px; }
+  .story-float-badge .badge-big { font-size: 2rem; }
+  .story-float-badge .badge-small { font-size: 0.65rem; }
+  .btn-submit { width: 100%; justify-content: center; }
+}
+
+@media (max-width: 360px) {
+  .hero-title { font-size: 2rem; }
+  .occasions-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== ANNOUNCEMENT BAR ===== -->
+<div class="announcement-bar">
+  🎂 Free delivery on orders above KES 3,000 &nbsp;|&nbsp; Call us: +2540181220406 / +254723853446
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<header class="header" id="header">
+  <nav class="navbar">
+    <a class="brand" onclick="showPage('home')" style="cursor:pointer;">
+      <img src="logo.jfif" alt="Amoura Bakery Logo" class="brand-logo"
+           onerror="this.style.display='none';this.nextElementSibling.style.fontSize='2rem';" />
+      <span class="brand-name">Amoura Bakery</span>
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </label>
+
+    <ul class="nav-links">
+      <li><span class="nav-link active" id="nav-home"     onclick="showPage('home');closeMenu()">Home</span></li>
+      <li><span class="nav-link"        id="nav-services" onclick="showPage('services');closeMenu()">Our Services</span></li>
+      <li><span class="nav-link"        id="nav-about"    onclick="showPage('about');closeMenu()">About Us</span></li>
+      <li><span class="nav-link"        id="nav-contact"  onclick="showPage('contact');closeMenu()">Contact Us</span></li>
+      <li class="nav-divider"></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ================================================================
+     HOME PAGE
+     ================================================================ -->
+<div id="page-home" class="page-section-wrapper active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-tag">✦ Freshly Baked Daily ✦</p>
+      <h1 class="hero-title">Order Your Dream<br /><em>Cake Online</em></h1>
+      <p class="hero-desc">Handcrafted with love in the heart of Mombasa. Every cake tells a story  let us bake yours.</p>
+      <div class="hero-actions">
+        <span class="btn-hero-primary" onclick="showPage('services')">Browse Our Cakes</span>
+        <span class="btn-hero-secondary" onclick="showPage('contact')">Custom Order</span>
+      </div>
+    </div>
+    <div class="hero-images">
+      <div class="hero-img-main">
+        <img src="mukatii amora.PNG" alt="Celebration Cake" onerror="this.src='';this.alt='🎂';this.style.cssText='height:340px;background:var(--rose-light);display:flex;align-items:center;justify-content:center;font-size:5rem;border-radius:var(--radius-lg);'" />
+      </div>
+      <div class="hero-img-side">
+        <img src="chocolate.png" alt="Chocolate Cake" onerror="this.src='';this.style.cssText='height:160px;background:var(--gold-light);border-radius:var(--radius-md);'" />
+        <img src="5.png" alt="Special Cake" onerror="this.src='';this.style.cssText='height:160px;background:var(--rose-light);border-radius:var(--radius-md);'" />
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust-bar">
+    <div class="trust-item"><i class="fa-solid fa-leaf"></i><span>Organic Ingredients</span></div>
+    <div class="trust-item"><i class="fa-solid fa-wheat-awn"></i><span>Freshly Baked Goodness </span></div>
+    <div class="trust-item"><i class="fa-solid fa-star"></i><span>300+ Happy Customers</span></div>
+    <div class="trust-item"><i class="fa-solid fa-cake-candles"></i><span>Custom Designs</span></div>
+  </section>
+
+  <!-- ABOUT STRIP -->
+  <section class="about-strip">
+    <div class="about-text">
+      <h2 class="section-title">Baked With Love, <em>Served With Joy</em></h2>
+      <p>Welcome to Amoura Bakery, where every bite tells a story. From rich chocolate layers to fresh fruity sponges, our cakes are made daily using the finest locally sourced, organic ingredients. Whether you're celebrating a birthday, a wedding, or just treating yourself we have the perfect cake waiting for you.</p>
+      <span class="link-arrow" onclick="showPage('about')">Learn Our Story <i class="fa-solid fa-arrow-right"></i></span>
+    </div>
+    <div class="about-badge">
+      <div class="badge-circle">
+        <span class="badge-big">3+</span>
+        <span class="badge-small">Years of<br />Sweet Craft</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED CAKES -->
+  <section class="cakes-section">
+    <p class="section-tag">✦ Our Bestsellers ✦</p>
+    <h2 class="section-title">Fresh From The <em>Oven</em></h2>
+    <div class="cakes-grid">
+
+      <div class="cake-card">
+        <div class="cake-img-wrap">
+          <img src="blue.png" alt="Blueberry Delight" onerror="this.parentNode.classList.add('no-img');this.parentNode.innerHTML='🫐';" />
+          
+        </div>
+        <div class="cake-info">
+          <h3>Blueberry Delight</h3>
+          <p>Bursting with fresh blueberries and whipped cream frosting.</p>
+          <div class="cake-footer">
+            <span class="cake-price">KES 3,500</span>
+            <span class="btn-card" onclick="showPage('contact')">Order Now</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cake-card">
+        <div class="cake-img-wrap">
+          <img src="cho.png" alt="Chocolate Dream" onerror="this.parentNode.classList.add('no-img');this.parentNode.innerHTML='🍫';" />
+          
+        </div>
+        <div class="cake-info">
+          <h3>Chocolate Dream</h3>
+          <p>Rich dark chocolate layers with silky ganache frosting.</p>
+          <div class="cake-footer">
+            <span class="cake-price">KES 2,800</span>
+            <span class="btn-card" onclick="showPage('contact')">Order Now</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cake-card">
+        <div class="cake-img-wrap">
+          <img src="cakes.png" alt="Strawberry Garden" onerror="this.parentNode.classList.add('no-img');this.parentNode.innerHTML='🍓';" />
+        </div>
+        <div class="cake-info">
+          <h3>Strawberry Garden</h3>
+          <p>Light sponge layered with strawberry compote &amp; fresh cream.</p>
+          <div class="cake-footer">
+            <span class="cake-price">KES 4,000</span>
+            <span class="btn-card" onclick="showPage('contact')">Order Now</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cake-card">
+        <div class="cake-img-wrap">
+          <img src="vanilla.png" alt="Classic Vanilla" onerror="this.parentNode.classList.add('no-img');this.parentNode.innerHTML='🎂';" />
+        </div>
+        <div class="cake-info">
+          <h3>Classic Vanilla</h3>
+          <p>Timeless vanilla sponge with Madagascar vanilla buttercream.</p>
+          <div class="cake-footer">
+            <span class="cake-price">KES 3,200</span>
+            <span class="btn-card" onclick="showPage('contact')">Order Now</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cake-card">
+        <div class="cake-img-wrap">
+          <img src="donates.PNG" alt="Banana Bliss" onerror="this.parentNode.classList.add('no-img');this.parentNode.innerHTML='🍌';" />
+        </div>
+        <div class="cake-info">
+          <h3>Doughnut Delight</h3>
+          <p>Soft, fluffy doughnuts topped with delicious sweetness in every bite</p>
+          <div class="cake-footer">
+            <span class="cake-price">KSh 450-6 pieces</span>
+            <span class="btn-card" onclick="showPage('contact')">Order Now</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cake-card">
+        <div class="cake-img-wrap">
+          <img src="congrts.png" alt="Black Forest" onerror="this.parentNode.classList.add('no-img');this.parentNode.innerHTML='🍒';" />
+          
+        </div>
+        <div class="cake-info">
+          <h3>Black Forest</h3>
+          <p>Cherries &amp; cream on a rich chocolate sponge base.</p>
+          <div class="cake-footer">
+            <span class="cake-price">KES 3,000</span>
+            <span class="btn-card" onclick="showPage('contact')">Order Now</span>
+          </div>
+        </div>
+      </div>
+      <!-- Assorted Party Bites Platter -->
+<div class="cake-card">
+  <div class="cake-img-wrap">
+    <img src="bakeries.PNG" alt="Party Bites Platter" onerror="this.parentNode.classList.add('no-img');this.parentNode.innerHTML='🍢';" />
+    
+  </div>
+  <div class="cake-info">
+    <h3>Party Bites Platter</h3>
+    <p>Crisp samosas, golden spring rolls &amp; savory meat skewers.</p>
+    <div class="cake-footer">
+      <span class="cake-price">KES 2,500</span>
+      <span class="btn-card" onclick="showPage('contact')">Order Now</span>
+    </div>
+  </div>
+</div>
+
+<!-- Cinnamon Swirl Rolls -->
+<div class="cake-card">
+  <div class="cake-img-wrap">
+    <img src="CINNAMON.PNG" alt="Cinnamon Swirl Rolls" onerror="this.parentNode.classList.add('no-img');this.parentNode.innerHTML='🌀';" />
+    
+  </div>
+  <div class="cake-info">
+    <h3>Cinnamon Swirl Rolls</h3>
+    <p>Freshly baked golden rolls filled with sweet cinnamon sugar.</p>
+    <div class="cake-footer">
+      <span class="cake-price">KES 1,200</span>
+      <span class="btn-card" onclick="showPage('contact')">Order Now</span>
+    </div>
+  </div>
+</div>
+
+<!-- Classic Marble Cake -->
+<div class="cake-card">
+  <div class="cake-img-wrap">
+    <img src="firstcake.PNG" alt="Classic Marble Cake" onerror="this.parentNode.classList.add('no-img');this.parentNode.innerHTML='🍰';" />
+    
+  </div>
+  <div class="cake-info">
+    <h3>Classic Marble Cake</h3>
+    <p>Moist vanilla &amp; rich chocolate blended into a light tea cake.</p>
+    <div class="cake-footer">
+      <span class="cake-price">KES 1,800</span>
+      <span class="btn-card" onclick="showPage('contact')">Order Now</span>
+    </div>
+  </div>
+</div>
+
+<!-- Citrus Glazed Bundt Cake -->
+<div class="cake-card">
+  <div class="cake-img-wrap">
+    <img src="h4.png" alt="Citrus Bundt Cake" onerror="this.parentNode.classList.add('no-img');this.parentNode.innerHTML='🍊';" />
+    
+  </div>
+  <div class="cake-info">
+    <h3>Citrus Bundt Cake</h3>
+    <p>Fluffy orange cake drizzled with sweet citrus glaze &amp; zest.</p>
+    <div class="cake-footer">
+      <span class="cake-price">KES 2,000</span>
+      <span class="btn-card" onclick="showPage('contact')">Order Now</span>
+    </div>
+  </div>
+</div>
+<!-- Glazed Honey & Nigella Rolls -->
+<div class="cake-card">
+  <div class="cake-img-wrap">
+    <img src="honeycombs.PNG" alt="Glazed Honey Rolls" onerror="this.parentNode.classList.add('no-img');this.parentNode.innerHTML='🥯';" />
+    
+  </div>
+  <div class="cake-info">
+    <h3>Glazed Honey Rolls</h3>
+    <p>Soft baked rolls glazed with sweet honey syrup &amp; black seed.</p>
+    <div class="cake-footer">
+      <span class="cake-price">KES 1,500</span>
+      <span class="btn-card" onclick="showPage('contact')">Order Now</span>
+    </div>
+  </div>
+</div>
+<!-- Chocolate Chip Cookies -->
+<div class="cake-card">
+  <div class="cake-img-wrap">
+    <img src="cookies.PNG" alt="Chocolate Chip Cookies" onerror="this.parentNode.classList.add('no-img');this.parentNode.innerHTML='🍪';" />
+  </div>
+  <div class="cake-info">
+    <h3>Choc Chip Cookies</h3>
+    <p>Crispy edges &amp; chewy centers loaded with rich chocolate chips.</p>
+    <div class="cake-footer">
+      <span class="cake-price">KES 800</span>
+      <span class="btn-card" onclick="showPage('contact')">Order Now</span>
+    </div>
+  </div>
+</div>
+<!-- Traditional Coconut Basbousa -->
+<div class="cake-card">
+  <div class="cake-img-wrap">
+    <img src="bosbosa.PNG" alt="Coconut Basbousa" onerror="this.parentNode.classList.add('no-img');this.parentNode.innerHTML='🍰';" />
+  </div>
+  <div class="cake-info">
+    <h3>Coconut Basbousa</h3>
+    <p>Moist semolina cake soaked in sweet syrup &amp; topped with coconut.</p>
+    <div class="cake-footer">
+      <span class="cake-price">KES 1,500</span>
+      <span class="btn-card" onclick="showPage('contact')">Order Now</span>
+    </div>
+  </div>
+</div>
+
+<!-- Soft Jam-Filled Shortbread Cookies -->
+<div class="cake-card">
+  <div class="cake-img-wrap">
+    <img src="cakesss.PNG" alt="Jam Shortbread Cookies" onerror="this.parentNode.classList.add('no-img');this.parentNode.innerHTML='🍪';" />
+  </div>
+  <div class="cake-info">
+    <h3>Jam Shortbread Cookies</h3>
+    <p>Melt-in-your-mouth butter cookies filled with sweet strawberry jam.</p>
+    <div class="cake-footer">
+      <span class="cake-price">KES 800</span>
+      <span class="btn-card" onclick="showPage('contact')">Order Now</span>
+    </div>
+  </div>
+</div>
+
+<!-- Assorted Dessert Tubs (Lotus Biscoff, Kinder & Chocolate) -->
+<div class="cake-card">
+  <div class="cake-img-wrap">
+    <img src="cake cano.PNG" alt="Gourmet Dessert Tubs" onerror="this.parentNode.classList.add('no-img');this.parentNode.innerHTML='🍨';" />
+  </div>
+  <div class="cake-info">
+    <h3>Gourmet Dessert Tubs</h3>
+    <p>Rich layers featuring Lotus Biscoff, Kinder Bueno &amp; chocolate drizzles.</p>
+    <div class="cake-footer">
+      <span class="cake-price">KES 600</span>
+      <span class="btn-card" onclick="showPage('contact')">Order Now</span>
+    </div>
+  </div>
+</div>
+
+<!-- Golden Crispy Cinnamon Churros -->
+<div class="cake-card">
+  <div class="cake-img-wrap">
+    <img src="gluten.PNG" alt="Crispy Cinnamon Churros" onerror="this.parentNode.classList.add('no-img');this.parentNode.innerHTML='🥖';" />
+  </div>
+  <div class="cake-info">
+    <h3>Crispy Cinnamon Churros</h3>
+    <p>Golden fried churros dusted with cinnamon sugar &amp; warm chocolate dip.</p>
+    <div class="cake-footer">
+      <span class="cake-price">KES 700</span>
+      <span class="btn-card" onclick="showPage('contact')">Order Now</span>
+    </div>
+  </div>
+</div>
+
+
+
+    </div>
+  </section>
+
+  <!-- BAKES BY CONTAINER SIZE -->
+  <section class="container-bakes-section">
+    <p class="section-tag">✦ Fresh From Our Kitchen ✦</p>
+    <h2 class="section-title">Brownies &amp; Bakes <em>By the Tray</em></h2>
+    <p class="container-bakes-intro">Choose the tray size that suits your occasion. Prices increase with the size of the container.</p>
+    <div class="tray-showcase">
+      <img class="tray-photo" src="amoracake.png" alt="Chocolate marble brownie baked in a foil tray" />
+      <div class="tray-prices">
+        <h3>Chocolate Marble Brownies</h3>
+        <p>Freshly baked and available in four tray sizes.</p>
+        <div class="container-bakes-grid">
+          <article class="container-price-card">
+            <span class="container-size">Small container</span>
+            <h3>Perfect for sharing</h3>
+            <span class="container-price">KES 400</span>
+          </article>
+          <article class="container-price-card">
+            <span class="container-size">Medium container</span>
+            <h3>A little more to share</h3>
+            <span class="container-price">KES 700</span>
+          </article>
+          <article class="container-price-card featured">
+            <span class="container-size">Large container</span>
+            <h3>Made for a crowd</h3>
+            <span class="container-price">KES 1,000</span>
+          </article>
+          <article class="container-price-card">
+            <span class="container-size">Party container</span>
+            <h3>For the whole table</h3>
+            <span class="container-price">KES 1,800</span>
+          </article>
+        </div>
+        <div class="brand-tray-note">
+          <img src="amor.png" alt="Amoura Bakes branded foil container" />
+          <span>Presented in our branded takeaway tray.</span>
+        </div>
+      </div>
+    </div>
+    <div class="biscuit-examples">
+      <div>
+        <h3>Biscuits &amp; assorted bakes</h3>
+        <p>Assorted biscuits and other freshly baked treats, available to order.</p>
+        <span class="quote-label">Price on request</span>
+      </div>
+      <img src="mixed.PNG" alt="A tray of assorted homemade biscuits and cake slices" />
+    </div>
+  </section>
+
+  <!-- OCCASIONS -->
+  <section class="occasions-section">
+    <p class="section-tag">✦ Perfect For Every Moment ✦</p>
+    <h2 class="section-title">Cakes For Every <em>Occasion</em></h2>
+    <div class="occasions-grid">
+      <div class="occasion-card">
+        <i class="fa-solid fa-birthday-cake"></i>
+        <h4>Birthdays</h4>
+        <p>Make every birthday unforgettable with a custom-designed celebration cake.</p>
+      </div>
+      <div class="occasion-card">
+        <i class="fa-solid fa-rings-wedding"></i>
+        <h4>Weddings</h4>
+        <p>Elegant tiered cakes to crown your special day with beauty and flavour.</p>
+      </div>
+      <div class="occasion-card">
+        <i class="fa-solid fa-champagne-glasses"></i>
+        <h4>Corporate Events</h4>
+        <p>Impress clients and celebrate milestones with premium corporate cakes.</p>
+      </div>
+      <div class="occasion-card">
+        <i class="fa-solid fa-baby"></i>
+        <h4>Baby Showers</h4>
+        <p>Sweet, pastel creations to welcome the newest addition to the family.</p>
+      </div>
+      <div class="occasion-card">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <h4>Graduations</h4>
+        <p>Celebrate academic achievements with a cake as impressive as the moment.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO ORDER -->
+  <section class="how-section">
+    <p class="section-tag">✦ Simple As 1-2-3 ✦</p>
+    <h2 class="section-title">How To <em>Order</em></h2>
+    <div class="steps-row">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h4>Choose Your Cake</h4>
+        <p>Browse our menu or describe your custom cake idea.</p>
+      </div>
+      <i class="fa-solid fa-chevron-right step-arrow"></i>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h4>Contact Us</h4>
+        <p>Reach us via WhatsApp, call, or the order form below.</p>
+      </div>
+      <i class="fa-solid fa-chevron-right step-arrow"></i>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h4>Confirm &amp; Pay</h4>
+        <p>Place a deposit via M-Pesa or cash to lock in your order.</p>
+      </div>
+      <i class="fa-solid fa-chevron-right step-arrow"></i>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h4>Enjoy!</h4>
+        <p>We bake fresh and deliver right to your door, on time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section">
+    <p class="section-tag">✦ What Our Customers Say ✦</p>
+    <h2 class="section-title">Happy <em>Customers</em></h2>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Amoura Bakery made our wedding cake and it was absolutely stunning. The Chocolate Dream tier was everyone's favourite. Highly recommend!"</p>
+        <span class="testimonial-author">Halima A. Nyali</span>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Ordered a custom birthday cake for my daughter with a mermaid theme they nailed it! Delivery was on time and the cake tasted amazing."</p>
+        <span class="testimonial-author">James K. Bamburi</span>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"The Blueberry Delight is something else. Fresh, light, and not too sweet. I order from them every month now. Best bakery in Mombasa!"</p>
+        <span class="testimonial-author">Fatuma R. Likoni</span>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★☆</div>
+        <p>"Their gift package was beautifully wrapped and the cupcakes inside were divine. Perfect for a colleague's farewell gift. Will definitely order again."</p>
+        <span class="testimonial-author">David M. Diani</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="cta-content">
+      <h2>Ready to Order Your Dream Cake?</h2>
+      <p>Place your order today — we deliver fresh across Mombasa. Custom cakes welcome!</p>
+      <div class="cta-btns">
+        <span class="btn-cta" onclick="showPage('services')">Browse Our Cakes</span>
+        <a href="https://wa.me/254181220406 / +25423853446" target="_blank" class="btn-cta-outline"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+  
+<!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-col brand-col">
+        <img src="logo.jfif" alt="Logo" class="footer-logo" onerror="this.style.display='none'" />
+        <h3>Amoura's Bakery</h3>
+        <p>The leading and only household name for cakes in Mombasa. Baked fresh, delivered with love.</p>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/amourabakes.ke" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          
+          <a href="https://wa.me/254181220406" target="_blank" aria-label="WhatsApp Main"><i class="fa-brands fa-whatsapp"></i></a>
+         <span>/</span>
+         <a href="https://wa.me/254723853446" target="_blank" aria-label="WhatsApp Secondary"><i class="fa-brands fa-whatsapp"></i></a>
+
+          <a href="https://www.tiktok.com/@amourabakes.ke" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><span onclick="showPage('home')"><i class="fa-solid fa-chevron-right"></i> Home</span></li>
+          <li><span onclick="showPage('services')"><i class="fa-solid fa-chevron-right"></i> Our Services</span></li>
+          <li><span onclick="showPage('about')"><i class="fa-solid fa-chevron-right"></i> About Us</span></li>
+          <li><span onclick="showPage('contact')"><i class="fa-solid fa-chevron-right"></i> Contact Us</span></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul class="contact-list">
+          <li><i class="fa-solid fa-location-dot"></i> Majengo, Mombasa, opposite Bin Agil Restaurant</li>
+          <li><i class="fa-solid fa-phone"></i> +254 181220406 / +245723853446</li>
+          <li><i class="fa-solid fa-envelope"></i> info@amoura.com</li>
+          <li><i class="fa-solid fa-clock"></i> Open Daily: 7:00 AM – 8:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-policies">
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">Shipping Policy</a>
+        <a href="#">Return &amp; Refund</a>
+      </div>
+      <p class="copy">&copy; 2026 Amoura Bakery. All rights reserved.</p>
+    </div>
+  </footer>
+
+</div><!-- end page-home -->
+
+<!-- ================================================================
+     SERVICES PAGE
+     ================================================================ -->
+<div id="page-services" class="page-section-wrapper">
+
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <p class="hero-tag">✦ What We Offer ✦</p>
+      <h1 class="page-hero-title">Our <em>Services</em></h1>
+      <p>Everything we bake is made fresh daily with the finest ingredients — just for you.</p>
+      <div class="breadcrumb">
+        <a onclick="showPage('home')">Home</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span>Our Services</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <p class="section-tag">✦ Our Specialities ✦</p>
+    <h2 class="section-title">What We <em>Bake</em></h2>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-cake-candles"></i></div>
+        <h3>Custom Cakes</h3>
+        <p>Your vision, our craft. We design personalised cakes for any theme, size, and flavour.</p>
+        <ul class="service-list">
+          <li><i class="fa-solid fa-check"></i> Any design or theme</li>
+          <li><i class="fa-solid fa-check"></i> Multiple sizes available</li>
+          <li><i class="fa-solid fa-check"></i> Choice of flavours &amp; frosting</li>
+          <li><i class="fa-solid fa-check"></i> Edible printing &amp; toppers</li>
+        </ul>
+        <span class="btn-service" onclick="showPage('contact')">Order Custom Cake</span>
+      </div>
+
+      <div class="service-card featured-service">
+        <div class="service-badge">Most Popular</div>
+        <div class="service-icon"><i class="fa-solid fa-star"></i></div>
+        <h3>Signature Cakes</h3>
+        <p>Our tried-and-loved classics. Ready-made or made to order in 24 hours.</p>
+        <ul class="service-list">
+          <li><i class="fa-solid fa-check"></i> Chocolate Dream</li>
+          <li><i class="fa-solid fa-check"></i> Blueberry Delight</li>
+          <li><i class="fa-solid fa-check"></i> Vanilla Classic</li>
+          <li><i class="fa-solid fa-check"></i> Strawberry Garden</li>
+        </ul>
+        <span class="btn-service" onclick="showPage('contact')">Order Now</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-truck"></i></div>
+        <h3>Delivery &amp; Pickup</h3>
+        <p>We deliver fresh cakes across Mombasa. Same-day delivery for orders placed before 10:00 AM.</p>
+        <ul class="service-list">
+          <li><i class="fa-solid fa-check"></i> Same-day delivery</li>
+          <li><i class="fa-solid fa-check"></i> Free delivery over KES 2,000</li>
+          <li><i class="fa-solid fa-check"></i> Safe cold-chain packaging</li>
+          <li><i class="fa-solid fa-check"></i> In-store pickup available</li>
+        </ul>
+        <span class="btn-service" onclick="showPage('contact')">Schedule Delivery</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+        <h3>Event Catering</h3>
+        <p>Planning a big event? Let us handle the desserts. We cater for weddings, corporate events &amp; more.</p>
+        <ul class="service-list">
+          <li><i class="fa-solid fa-check"></i> Weddings &amp; engagements</li>
+          <li><i class="fa-solid fa-check"></i> Corporate parties</li>
+          <li><i class="fa-solid fa-check"></i> Graduation celebrations</li>
+          <li><i class="fa-solid fa-check"></i> Baby showers &amp; more</li>
+        </ul>
+        <span class="btn-service" onclick="showPage('contact')">Book Event</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-gift"></i></div>
+        <h3>Gift Packages</h3>
+        <p>Send love in a box! Mini cakes, slices &amp; cupcakes — beautifully wrapped and ready to impress.</p>
+        <ul class="service-list">
+          <li><i class="fa-solid fa-check"></i> Gift-wrapped packaging</li>
+          <li><i class="fa-solid fa-check"></i> Personalised message card</li>
+          <li><i class="fa-solid fa-check"></i> Assorted flavour boxes</li>
+          <li><i class="fa-solid fa-check"></i> Corporate gifting available</li>
+        </ul>
+        <span class="btn-service" onclick="showPage('contact')">Shop Gifts</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+        <h3>Baking Classes</h3>
+        <p>Learn the art of baking from our expert pastry chefs — individual or group sessions.</p>
+        <ul class="service-list">
+          <li><i class="fa-solid fa-check"></i> Weekend sessions</li>
+          <li><i class="fa-solid fa-check"></i> Hands-on experience</li>
+          <li><i class="fa-solid fa-check"></i> Certificate on completion</li>
+          <li><i class="fa-solid fa-check"></i> Kids classes available</li>
+        </ul>
+        <span class="btn-service" onclick="showPage('contact')">Book a Class</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FLAVOURS TABLE -->
+  <section class="page-section bg-gold">
+    <p class="section-tag">✦ Pick Your Favourite ✦</p>
+    <h2 class="section-title">Our Cake <em>Flavours</em></h2>
+    <div class="flavours-table-wrap">
+      <table class="flavours-table">
+        <thead>
+          <tr>
+            <th>Cake</th>
+            <th>Description</th>
+            <th>Sizes</th>
+            <th>From</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Chocolate Dream</strong></td><td>Rich dark chocolate with silky ganache</td><td>1kg · 2kg · 3kg</td><td>KES 2,800</td><td><span class="table-btn" onclick="showPage('contact')">Order</span></td></tr>
+          <tr><td><strong>Blueberry Delight</strong></td><td>Fresh blueberries with whipped cream</td><td>1kg · 2kg · 3kg</td><td>KES 2,500</td><td><span class="table-btn" onclick="showPage('contact')">Order</span></td></tr>
+          <tr><td><strong>Strawberry Garden</strong></td><td>Light sponge with strawberry compote</td><td>1kg · 2kg · 3kg</td><td>KES 2,600</td><td><span class="table-btn" onclick="showPage('contact')">Order</span></td></tr>
+          <tr><td><strong>Classic Vanilla</strong></td><td>Madagascar vanilla buttercream sponge</td><td>1kg · 2kg · 3kg</td><td>KES 2,200</td><td><span class="table-btn" onclick="showPage('contact')">Order</span></td></tr>
+          <tr><td><strong>Banana Bliss</strong></td><td>Moist banana with caramel drizzle</td><td>1kg · 2kg · 3kg</td><td>KES 2,400</td><td><span class="table-btn" onclick="showPage('contact')">Order</span></td></tr>
+          <tr><td><strong>Black Forest</strong></td><td>Cherries &amp; cream on chocolate base</td><td>1kg · 2kg · 3kg</td><td>KES 3,000</td><td><span class="table-btn" onclick="showPage('contact')">Order</span></td></tr>
+          <tr><td><strong>Orange Zest</strong></td><td>Zesty citrus sponge with orange glaze</td><td>1kg · 2kg · 3kg</td><td>KES 2,300</td><td><span class="table-btn" onclick="showPage('contact')">Order</span></td></tr>
+          <tr><td><strong>Funfetti Party</strong></td><td>Colourful confetti sponge for celebrations</td><td>1kg · 2kg · 3kg</td><td>KES 3,000</td><td><span class="table-btn" onclick="showPage('contact')">Order</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="cta-content">
+      <h2>Can't Find What You're Looking For?</h2>
+      <p>We do fully custom orders. Tell us your idea and we'll make it happen!</p>
+      <span class="btn-cta" onclick="showPage('contact')">Contact Us Today</span>
+    </div>
+  </section>
+
+  
+       
+
+ <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-col brand-col">
+        <img src="logo.jfif" alt="Logo" class="footer-logo" onerror="this.style.display='none'" />
+        <h3>Amoura's Bakery</h3>
+        <p>Delicious homemade cakes baked fresh in Mombasa and delivered with love.</p>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/amourabakes.ke" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <!-- Main WhatsApp Line -->
+          <a href="https://wa.me/254181220406" target="_blank" aria-label="WhatsApp" title="Chat on WhatsApp (+254 181 220 406)"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://www.tiktok.com/@amourabakes.ke" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><span onclick="showPage('home')"><i class="fa-solid fa-chevron-right"></i> Home</span></li>
+          <li><span onclick="showPage('services')"><i class="fa-solid fa-chevron-right"></i> Our Services</span></li>
+          <li><span onclick="showPage('about')"><i class="fa-solid fa-chevron-right"></i> About Us</span></li>
+          <li><span onclick="showPage('contact')"><i class="fa-solid fa-chevron-right"></i> Contact Us</span></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul class="contact-list">
+          <li><i class="fa-solid fa-location-dot"></i> Majengo, Next to Binagel Hotel, Mombasa</li>
+          <li><i class="fa-solid fa-phone"></i> +254 181 220 406 / +254 723 853 446</li>
+          <li><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/254181220406" target="_blank" style="color: inherit; text-decoration: none;">+254 181 220 406 (Main)</a></li>
+          <li><i class="fa-solid fa-envelope"></i> info@amora.com</li>
+          <li><i class="fa-solid fa-clock"></i> Mon–Sat: 7:00 AM – 8:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-policies">
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">Shipping Policy</a>
+        <a href="#">Return &amp; Refund</a>
+      </div>
+      <p class="copy">&copy; 2026 Amoura Bakery. All rights reserved.</p>
+    </div>
+  </footer>
+
+</div><!-- end page-home -->
+  
+  
+
+<!-- end page-about -->
+
+
+<!-- ================================================================
+     CONTACT PAGE
+     ================================================================ -->
+<div id="page-contact" class="page-section-wrapper">
+
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <p class="hero-tag">✦ We'd Love To Hear From You ✦</p>
+      <h1 class="page-hero-title">Contact <em>Us</em></h1>
+      <p>Place an order, ask a question, or plan your custom cake. We're here for you!</p>
+      <div class="breadcrumb">
+        <a onclick="showPage('home')">Home</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span>Contact Us</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO CARDS -->
+  <section class="page-section">
+    <p class="section-tag">✦ Reach Us Anytime ✦</p>
+    <h2 class="section-title">Get In <em>Touch</em></h2>
+    <div class="contact-info-grid">
+      <div class="contact-info-card">
+        <div class="contact-info-icon"><i class="fa-solid fa-location-dot"></i></div>
+        <h4>Visit Us</h4>
+        <p>Cake City HQ<br />majengo, Mombasa<br />Kenya</p>
+      </div>
+      <div class="contact-info-card">
+        <div class="contact-info-icon"><i class="fa-solid fa-phone"></i></div>
+        <h4>Call Us</h4>
+        <p>+254 723114466</p>
+        <p style="font-size:0.85rem;color:var(--text-light);margin-top:6px">Mon – Sat: 7:00 AM – 8:00 PM</p>
+      </div>
+      <div class="contact-info-card">
+        <div class="contact-info-icon"><i class="fa-brands fa-whatsapp"></i></div>
+        <h4>WhatsApp</h4>
+        <p>+254 723114466</p>
+        <a href="https://wa.me/254723114466" target="_blank" class="contact-link">Chat With Us</a>
+      </div>
+      <div class="contact-info-card">
+        <div class="contact-info-icon"><i class="fa-solid fa-envelope"></i></div>
+        <h4>Email Us</h4>
+        <p>info@amoura.com</p>
+        <a href="mailto:info@amoura.com" class="contact-link">Send Email</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM + SIDEBAR -->
+  <section class="page-section bg-gold">
+    <div class="contact-main">
+      <div class="contact-form-wrap">
+        <p class="section-tag" style="text-align:left">✦ Place An Order Or Enquiry ✦</p>
+        <h2 class="section-title" style="text-align:left;margin-bottom:28px">Send Us A <em>Message</em></h2>
+
+        <div class="form-success" id="success-msg">
+          <i class="fa-solid fa-circle-check"></i>
+          <h4>Message Sent!</h4>
+          <p>Thank you for reaching out. We'll get back to you within 24 hours.</p>
+        </div>
+
+        <div class="contact-form" id="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name <span class="required">*</span></label>
+              <input type="text" id="fname" placeholder="e.g. Aisha" />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name <span class="required">*</span></label>
+              <input type="text" id="lname" placeholder="e.g. Kamau" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address <span class="required">*</span></label>
+              <input type="email" id="email" placeholder="you@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone / WhatsApp <span class="required">*</span></label>
+              <input type="tel" id="phone" placeholder="+254 7XX XXX XXX" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject">
+              <option value="">-- Select a topic --</option>
+              <option value="order">Place an Order</option>
+              <option value="custom">Custom Cake Enquiry</option>
+              <option value="delivery">Delivery Question</option>
+              <option value="event">Event Catering</option>
+              <option value="class">Baking Class Booking</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="cake-type">Cake Type (if ordering)</label>
+            <select id="cake-type">
+              <option value="">-- Select cake --</option>
+              <option>Chocolate Dream</option>
+              <option>Blueberry Delight</option>
+              <option>Strawberry Garden</option>
+              <option>Classic Vanilla</option>
+              <option>Banana Bliss</option>
+              <option>Black Forest</option>
+              <option>Orange Zest</option>
+              <option>Funfetti Party</option>
+              <option>Custom Design</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cake-size">Cake Size</label>
+              <select id="cake-size">
+                <option value="">-- Select size --</option>
+                <option>1 kg (serves 8–10)</option>
+                <option>2 kg (serves 16–20)</option>
+                <option>3 kg (serves 25–30)</option>
+                <option>Custom size</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="delivery-date">Delivery / Pickup Date</label>
+              <input type="date" id="delivery-date" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message or Special Instructions</label>
+            <textarea id="message" rows="5" placeholder="Tell us your cake idea, message to write on the cake, delivery address, or any other details..."></textarea>
+          </div>
+          <button type="button" class="btn-submit" onclick="handleSubmit()">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+          </button>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="contact-sidebar">
+        <div class="sidebar-card">
+          <h4><i class="fa-solid fa-clock"></i> Opening Hours</h4>
+          <table class="hours-table">
+            <tr><td>Monday</td><td>7:00 AM – 8:00 PM</td></tr>
+            <tr><td>Tuesday</td><td>7:00 AM – 8:00 PM</td></tr>
+            <tr><td>Wednesday</td><td>7:00 AM – 8:00 PM</td></tr>
+            <tr><td>Thursday</td><td>7:00 AM – 8:00 PM</td></tr>
+            <tr><td>Friday</td><td>7:00 AM – 8:00 PM</td></tr>
+            <tr><td>Saturday</td><td>8:00 AM – 6:00 PM</td></tr>
+            <tr class="closed"><td>Sunday</td><td>Closed</td></tr>
+          </table>
+        </div>
+        <div class="sidebar-card">
+          <h4><i class="fa-solid fa-circle-info"></i> Order Guidelines</h4>
+          <ul class="order-tips">
+            <li><i class="fa-solid fa-check"></i> Place orders at least <strong>24 hrs</strong> in advance</li>
+            <li><i class="fa-solid fa-check"></i> Custom cakes need <strong>48–72 hrs</strong> notice</li>
+            <li><i class="fa-solid fa-check"></i> Same-day orders by <strong>10:00 AM</strong></li>
+            <li><i class="fa-solid fa-check"></i> Free delivery over <strong>KES 2,000</strong></li>
+            <li><i class="fa-solid fa-check"></i> Payment via <strong>M-Pesa or cash</strong></li>
+          </ul>
+        </div>
+        <div class="sidebar-card">
+          <h4><i class="fa-solid fa-share-nodes"></i> Follow Us</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:10px">
+            <a href="#" class="social-pill"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="#" class="social-pill"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+            <a href="https://wa.me/254723114466" target="_blank" class="social-pill"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            <a href="#" class="social-pill"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="map-section">
+    <p class="section-tag">✦ Find Us ✦</p>
+    <h2 class="section-title">Our <em>Location</em></h2>
+    <div class="map-wrap">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.283648488743!2d39.65665!3d-4.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x184012e79c0a7d07%3A0x4e3b5c0d56a3bde!2sMombasa%2C%20Kenya!5e0!3m2!1sen!2ske!4v1000000000000"
+        width="100%" height="420"
+        style="border:0;border-radius:var(--radius-lg);"
+        allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="AA's Bakery Location — Mombasa, Kenya">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="page-section">
+    <p class="section-tag">✦ Common Questions ✦</p>
+    <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <input type="checkbox" id="faq1" class="faq-toggle" />
+        <label for="faq1" class="faq-question">
+          How far in advance should I place my order?
+          <i class="fa-solid fa-chevron-down faq-arrow"></i>
+        </label>
+        <div class="faq-answer">
+          <p>We recommend placing standard orders at least <strong>24 hours</strong> in advance. For custom-designed cakes, please order <strong>48–72 hours</strong> ahead. For large event orders, contact us at least a week before.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="faq2" class="faq-toggle" />
+        <label for="faq2" class="faq-question">
+          Do you deliver outside Mombasa?
+          <i class="fa-solid fa-chevron-down faq-arrow"></i>
+        </label>
+        <div class="faq-answer">
+          <p>Currently we deliver within <strong>Mombasa and its surrounding areas</strong> including Nyali, Bamburi, Likoni, Diani, and Ukunda. For deliveries further afield, please contact us and we'll do our best to accommodate you.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="faq3" class="faq-toggle" />
+        <label for="faq3" class="faq-question">
+          How do I pay for my order?
+          <i class="fa-solid fa-chevron-down faq-arrow"></i>
+        </label>
+        <div class="faq-answer">
+          <p>We accept <strong>M-Pesa</strong> (Paybill and Till number available), <strong>cash on delivery</strong>, and <strong>cash in-store</strong>. A 50% deposit is required for all custom cake orders to confirm your booking.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="faq4" class="faq-toggle" />
+        <label for="faq4" class="faq-question">
+          Can I request a specific design or theme?
+          <i class="fa-solid fa-chevron-down faq-arrow"></i>
+        </label>
+        <div class="faq-answer">
+          <p>Absolutely! We specialise in <strong>fully custom cakes</strong>. You can share reference photos, colour preferences, and any specific theme or wording. Our pastry chefs will work with you to bring your vision to life.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="faq5" class="faq-toggle" />
+        <label for="faq5" class="faq-question">
+          Do you cater for dietary requirements (e.g. eggless, gluten-free)?
+          <i class="fa-solid fa-chevron-down faq-arrow"></i>
+        </label>
+        <div class="faq-answer">
+          <p>Yes! We offer <strong>eggless cake options</strong> and can accommodate some dietary needs. Please mention your requirements when placing your order and our team will advise on the best options available.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="faq6" class="faq-toggle" />
+        <label for="faq6" class="faq-question">
+          What sizes do your cakes come in?
+          <i class="fa-solid fa-chevron-down faq-arrow"></i>
+        </label>
+        <div class="faq-answer">
+          <p>Our standard sizes are <strong>1 kg (serves 8–10)</strong>, <strong>2 kg (serves 16–20)</strong>, and <strong>3 kg (serves 25–30)</strong>. Custom sizes are available for large events — just let us know your guest count and we'll advise.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="cta-content">
+      <h2>Still Have Questions?</h2>
+      <p>WhatsApp or call us directly — we're happy to help you plan the perfect cake!</p>
+      <div class="cta-btns">
+        <a href="https://wa.me/254723114466" target="_blank" class="btn-cta"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+        <a href="tel:+254723114466" class="btn-cta-outline"><i class="fa-solid fa-phone"></i> Call Now</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-col brand-col">
+        <img src="im1.png" alt="Logo" class="footer-logo" onerror="this.style.display='none'" />
+        <h3>AA's Bakery</h3>
+        <p>The leading and only household name for cakes in Mombasa. Baked fresh, delivered with love.</p>
+        <div class="social-icons">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://wa.me/254723114466" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><span onclick="showPage('home')"><i class="fa-solid fa-chevron-right"></i> Home</span></li>
+          <li><span onclick="showPage('services')"><i class="fa-solid fa-chevron-right"></i> Our Services</span></li>
+          <li><span onclick="showPage('about')"><i class="fa-solid fa-chevron-right"></i> About Us</span></li>
+          <li><span onclick="showPage('contact')"><i class="fa-solid fa-chevron-right"></i> Contact Us</span></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul class="contact-list">
+          <li><i class="fa-solid fa-location-dot"></i> Cake City HQ, Wambugu Rd, Mombasa</li>
+          <li><i class="fa-solid fa-phone"></i> +254 723 114466</li>
+          <li><i class="fa-solid fa-envelope"></i> info@amoura</li>
+          <li><i class="fa-solid fa-clock"></i> Mon–Sat: 7:00 AM – 8:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-policies">
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">Shipping Policy</a>
+        <a href="#">Return &amp; Refund</a>
+      </div>
+      <p class="copy">&copy; 2025 AA's Bakery. All rights reserved.</p>
+    </div>
+  </footer>
+
+</div><!-- end page-contact -->
+
+
+<!-- BACK TO TOP -->
+<a href="#header" class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></a>
+
+
+<!-- ================================================================
+     JAVASCRIPT — Page switching & form
+     ================================================================ -->
+<script>
+  const pages = ['home', 'services', 'about', 'contact'];
+
+  function showPage(page) {
+    // Hide all pages
+    pages.forEach(p => {
+      const el = document.getElementById('page-' + p);
+      if (el) el.classList.remove('active');
+    });
+
+    // Show target page
+    const target = document.getElementById('page-' + page);
+    if (target) target.classList.add('active');
+
+    // Update nav active state
+    pages.forEach(p => {
+      const navEl = document.getElementById('nav-' + p);
+      if (navEl) navEl.classList.remove('active');
+    });
+    const activeNav = document.getElementById('nav-' + page);
+    if (activeNav) activeNav.classList.add('active');
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Update hash for bookmarking
+    history.pushState(null, '', '#' + page);
+  }
+
+  function closeMenu() {
+    const toggle = document.getElementById('nav-toggle');
+    if (toggle) toggle.checked = false;
+  }
+
+  function handleSubmit() {
+    const fname = document.getElementById('fname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+
+    if (!fname || !email || !phone) {
+      alert('Please fill in your name, email, and phone number before submitting.');
+      return;
+    }
+
+    document.getElementById('contact-form').style.display = 'none';
+    const success = document.getElementById('success-msg');
+    success.style.display = 'flex';
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // Handle browser back/forward & direct URL hash
+  window.addEventListener('load', function () {
+    const hash = window.location.hash.replace('#', '');
+    if (pages.includes(hash)) {
+      showPage(hash);
+    }
+  });
+
+  window.addEventListener('popstate', function () {
+    const hash = window.location.hash.replace('#', '');
+    if (pages.includes(hash)) showPage(hash);
+    else showPage('home');
+  });
+</script>
+
+</body>
+</html>
